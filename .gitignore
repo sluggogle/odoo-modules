@@ -1,0 +1,6 @@
+##
+# Ignore compiled sources
+# Ignore emacs temp files
+##
+*.pyc
+*.*~
