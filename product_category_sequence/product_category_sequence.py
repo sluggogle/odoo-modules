@@ -13,7 +13,7 @@ class ProductCategory(models.Model):
     _inherit = 'product.category'
     x_sequence_id = fields.Many2one(comodel_name='ir.sequence',
                                     string='Product Sequence',
-                                    help="This sequence will be use for products' internal references")
+                                    help=_("This sequence will be use for products' internal references"))
 
 ##################################################
 # Now each time we create a product
@@ -33,7 +33,7 @@ class ProductTemplate(models.Model):
     _sql_constraints = [
         ('uniq_default_code',
          'unique(default_code)',
-         'The reference must be unique'),
+         _('The reference must be unique')),
     ]
 
     def _getInternalReference(self, vals):
