@@ -39,12 +39,12 @@ class ProductTemplate(models.Model):
     def _getInternalReference(self, vals):
         # Looking for category sequence bottom-->up
         categ_id = vals['categ_id']
-        sequence_id  = sequence_id = self.env['product.category'].browse(categ_id).x_sequence_id.id
+        sequence_id = self.env['product.category'].browse(categ_id).x_sequence_id.id
         while sequence_id == False:
             categ_id = self.env['product.category'].browse(categ_id).parent_id.id
             if categ_id == False:
                 break
-            sequence_id  = sequence_id = self.env['product.category'].browse(categ_id).x_sequence_id.id
+            sequence_id = self.env['product.category'].browse(categ_id).x_sequence_id.id
 
         if sequence_id is False:
             _logger.info('Category has no sequence set ! Setting default sequence')

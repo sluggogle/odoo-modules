@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_quality_control_stock_samples_quality_control_stock_samples,quality_control_stock_samples.quality_control_stock_samples,model_quality_control_stock_samples_quality_control_stock_samples,,1,0,0,0
