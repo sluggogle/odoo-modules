@@ -69,3 +69,56 @@ class ProductTemplate(models.Model):
                 vals['default_code'] = self._getInternalReference(vals)
             super(ProductTemplate, product).write(vals)
         return True
+
+##################################################
+# Same for product.product
+##################################################
+class ProductProduct(models.Model):
+    _inherit = 'product.product'
+
+    default_code = fields.Char(
+        string='Reference',
+        size=64,
+        select=True,
+        required=False,
+        default='Auto')
+
+    _sql_constraints = [
+        ('uniq_default_code',
+         'unique(default_code)',
+         _('The reference must be unique')),
+    ]
+
+    def _getInternalReference(self, vals):
+        # Looking for category sequence bottom-->up
+        categ_id = vals['categ_id']
+        sequence_id = self.env['product.category'].browse(categ_id).x_sequence_id.id
+        while sequence_id == False:
+            categ_id = self.env['product.category'].browse(categ_id).parent_id.id
+            if categ_id == False:
+                break
+            sequence_id = self.env['product.category'].browse(categ_id).x_sequence_id.id
+
+        if sequence_id is False:
+            _logger.info('Category has no sequence set ! Setting default sequence')
+            ref_code = self.env['ir.sequence'].search([('name', '=', 'Default Product Sequence')])._next()
+        else:
+            _logger.info('Product category sequence found !')
+            ref_code = self.env['ir.sequence'].get_id(sequence_id)
+            
+        _logger.info('ref_code: %s', ref_code)
+        return ref_code
+    
+    @api.model
+    def create(self, vals):
+        if 'default_code' in vals and vals['default_code'] == 'Auto':
+            vals['default_code'] = self._getInternalReference(vals)
+        return super (ProductProduct, self).create(vals)
+
+    @api.multi
+    def write(self, vals):
+        for product in self:
+            if 'default_code' in vals and vals['default_code'] == 'Auto':
+                vals['default_code'] = self._getInternalReference(vals)
+            super(ProductProduct, product).write(vals)
+        return True
