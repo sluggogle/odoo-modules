@@ -17,6 +17,8 @@ class StockProductionLot(models.Model):
     def _findGoodSequence(self, vals):
         _logger.info("in vals: %s", vals)
         product_id = vals.get('default_product_id', False)
+        if product_id is False:
+            product_id = vals.get('product_id', False)
         _logger.info('Product ID: %s', product_id)
 
         #If a product was set
