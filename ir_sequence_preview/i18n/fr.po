@@ -1,0 +1,30 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ir_sequence_preview
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-10-05 10:34+0100\n"
+"PO-Revision-Date: 2016-10-05 10:35+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.8.8\n"
+"Last-Translator: \n"
+"Language: fr\n"
+
+#. module: ir_sequence_preview
+#: code:addons/ir_sequence_preview/ir_sequence.py:41
+#, python-format
+msgid "Invalid prefix or suffix for sequence '%s'"
+msgstr "préfixe ou suffixe non valide pour la séquence '%s'"
+
+#. module: ir_sequence_preview
+#: code:addons/ir_sequence_preview/ir_sequence.py:41
+#, python-format
+msgid "Warning"
+msgstr "Avertissement"

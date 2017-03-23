@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from openerp import models, fields, api
+from openerp.exceptions import ValidationError
 from openerp.tools.translate import _
 
 import logging
@@ -55,3 +56,20 @@ class StockProductionLot(models.Model):
     _defaults = {
         'name': _findGoodSequence,
     }
+
+    #_sql_constraints = [
+    #    ('unique_name',
+    #     'unique(name)',
+    #     'Lot number already exists !')
+    #]
+
+    #@api.one
+    #@api.constrains('name')
+    #def _check_unique_name(self):
+    #    record = self.search([('name', '=', self.name)])
+    #    val = len(record)
+    #    _logger.info('\n\nRecord: %s\n\n', record)
+    #    _logger.info('\n\nVal: %s\n\n', val)
+    #    _logger.info('\n\nName: %s\n\n', self.name)
+    #    if (val > 0):
+    #        raise ValidationError("Lot number already exists !")

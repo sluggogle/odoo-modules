@@ -1,0 +1,369 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#      * label
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-08-24 10:28+0100\n"
+"PO-Revision-Date: 2016-08-24 10:41+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.8.8\n"
+"Last-Translator: \n"
+"Language: fr\n"
+
+#. module: label
+#: view:label.print:label.view_label_print_form
+msgid "Add sidebar button"
+msgstr "Ajouter le bouton"
+
+#. module: label
+#: help:label.print.wizard,company_logo:0
+msgid "Add the company logo ?"
+msgstr "Ajouter le logo de la société ?"
+
+#. module: label
+#: view:label.print:label.view_label_print_form
+msgid "Advance"
+msgstr "Avancé"
+
+#. module: label
+#: selection:label.print.field,type:0
+msgid "Barcode"
+msgstr "Code Barre"
+
+#. module: label
+#: view:label.print.wizard:label.view_label_print_wizard
+msgid "Barcode height and width."
+msgstr "Hauteur et Largeur du Code Barre"
+
+#. module: label
+#: selection:label.print.field,position:0
+msgid "Bottom"
+msgstr "Bas"
+
+#. module: label
+#: field:label.config,bottom_margin:0
+msgid "Bottom Margin  (in mm)"
+msgstr "Marge du Bas (en mm)"
+
+#. module: label
+#: field:label.print.wizard,brand_id:0
+msgid "Brand Name"
+msgstr "Nom de la Marque"
+
+#. module: label
+#: view:label.print.wizard:label.view_label_print_wizard
+msgid "Cancel"
+msgstr "Annuler"
+
+#. module: label
+#: field:label.config,cell_spacing:0
+msgid "Cell Spacing"
+msgstr "Espacement des Cellules"
+
+#. module: label
+#: field:label.print.wizard,company_logo:0
+msgid "Company Logo"
+msgstr "Logo Société"
+
+#. module: label
+#: field:label.brand,create_uid:0 field:label.config,create_uid:0
+#: field:label.print,create_uid:0 field:label.print.field,create_uid:0
+#: field:label.print.wizard,create_uid:0
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: label
+#: field:label.brand,create_date:0 field:label.config,create_date:0
+#: field:label.print,create_date:0 field:label.print.field,create_date:0
+#: field:label.print.wizard,create_date:0
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: label
+#: field:label.brand,display_name:0 field:label.config,display_name:0
+#: field:label.print,display_name:0 field:label.print.field,display_name:0
+#: field:label.print.wizard,display_name:0
+#: field:report.label.report_label,display_name:0
+msgid "Display Name"
+msgstr "Afficher le Nom"
+
+#. module: label
+#: view:label.print:label.view_label_print_form
+msgid ""
+"Display a button in the sidebar of related documents to open a composition "
+"wizard"
+msgstr ""
+"Affiche un bouton dans la barre supérieur des documents liés permettant "
+"d'ouvrir l'assistant de mise en page"
+
+#. module: label
+#: model:ir.model,name:label.model_ir_model_fields
+#: view:label.print:label.view_label_print_form field:label.print,field_ids:0
+#: field:label.print.field,field_id:0 field:label.print.field,python_field:0
+msgid "Fields"
+msgstr "Champs"
+
+#. module: label
+#: field:label.print.field,fontsize:0
+msgid "Font Size"
+msgstr "Taille de la police"
+
+#. module: label
+#: field:label.print.wizard,barcode_height:0
+#: field:label.print.wizard,image_height:0
+msgid "Height"
+msgstr "Hauteur"
+
+#. module: label
+#: field:label.config,height:0
+msgid "Height (in mm)"
+msgstr "Hauteur (en mm)"
+
+#. module: label
+#: field:label.brand,id:0 field:label.config,id:0 field:label.print,id:0
+#: field:label.print.field,id:0 field:label.print.wizard,id:0
+#: field:report.label.report_label,id:0
+msgid "ID"
+msgstr ""
+
+#. module: label
+#: selection:label.print.field,type:0
+msgid "Image"
+msgstr ""
+
+#. module: label
+#: view:label.print.wizard:label.view_label_print_wizard
+msgid "Image height and width."
+msgstr "Hauteur et Largeur de l'image"
+
+#. module: label
+#: field:label.print.wizard,is_barcode:0
+msgid "Is Barcode?"
+msgstr "Est un code barre ?"
+
+#. module: label
+#: field:label.print.wizard,is_image:0
+msgid "Is Image?"
+msgstr "Est une image ?"
+
+#. module: label
+#: field:label.config,label_main_id:0
+#: view:label.print:label.view_label_print_form
+msgid "Label"
+msgstr "Etiquette"
+
+#. module: label
+#: code:addons/label/models/label_print.py:64
+#, python-format
+msgid "Label (%s)"
+msgstr "Etiquette (%s)"
+
+#. module: label
+#: view:label.brand:label.view_label_brand_form
+#: field:label.brand,label_config_ids:0
+msgid "Label Config"
+msgstr "Config Etiquette"
+
+#. module: label
+#: model:ir.actions.act_window,name:label.action_label_config_form
+#: model:ir.ui.menu,name:label.menu_label_config_view
+#: view:label.brand:label.view_label_brand_form
+#: view:label.brand:label.view_label_brand_tree
+#: view:label.config:label.view_label_config_form
+msgid "Label Configuration"
+msgstr "Configuration Etiquette"
+
+#. module: label
+#: model:ir.actions.act_window,name:label.action_label_print_form
+#: model:ir.ui.menu,name:label.menu_label_print_view
+msgid "Label Print"
+msgstr "Impression Etiquette"
+
+#. module: label
+#: field:label.print.wizard,name:0
+msgid "Label Size"
+msgstr "Taille Etiquette"
+
+#. module: label
+#: field:label.brand,__last_update:0 field:label.config,__last_update:0
+#: field:label.print,__last_update:0 field:label.print.field,__last_update:0
+#: field:label.print.wizard,__last_update:0
+#: field:report.label.report_label,__last_update:0
+msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: label
+#: field:label.brand,write_uid:0 field:label.config,write_uid:0
+#: field:label.print,write_uid:0 field:label.print.field,write_uid:0
+#: field:label.print.wizard,write_uid:0
+msgid "Last Updated by"
+msgstr "Dernière mise à jour par"
+
+#. module: label
+#: field:label.brand,write_date:0 field:label.config,write_date:0
+#: field:label.print,write_date:0 field:label.print.field,write_date:0
+#: field:label.print.wizard,write_date:0
+msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: label
+#: selection:label.print.field,position:0
+msgid "Left"
+msgstr "Gauche"
+
+#. module: label
+#: field:label.config,left_margin:0
+msgid "Left Margin (in mm)"
+msgstr "Marge Gauche (in mm)"
+
+#. module: label
+#: field:label.print,model_id:0
+msgid "Model"
+msgstr "Modèle"
+
+#. module: label
+#: field:label.print,model_list:0
+msgid "Model List"
+msgstr "Liste des Modèles"
+
+#. module: label
+#: field:label.brand,brand_name:0 field:label.config,name:0
+#: field:label.print,name:0
+msgid "Name"
+msgstr "Nom"
+
+#. module: label
+#: field:label.print.field,newline:0
+msgid "New Line"
+msgstr "Nouvelle Ligne"
+
+#. module: label
+#: field:label.print.field,nolabel:0
+msgid "No Label"
+msgstr "Sans Label"
+
+#. module: label
+#: selection:label.print.field,type:0
+msgid "Normal"
+msgstr ""
+
+#. module: label
+#: field:label.print.wizard,number_of_copy:0
+msgid "Number Of Copy"
+msgstr "Nombre d'éléments"
+
+#. module: label
+#: field:label.print.field,position:0
+msgid "Position"
+msgstr ""
+
+#. module: label
+#: view:label.print.wizard:label.view_label_print_wizard
+msgid "Print"
+msgstr "Imprimer"
+
+#. module: label
+#: view:label.print.wizard:label.view_label_print_wizard
+msgid "Print Label"
+msgstr "Imprimer l'Etiquette"
+
+#. module: label
+#: field:label.print.field,python_expression:0
+msgid "Python Expression"
+msgstr ""
+
+#. module: label
+#: view:label.print:label.view_label_print_form
+msgid ""
+"Python experession field must be start with obj. e.g:- obj.M2O_field."
+"field_name"
+msgstr ""
+
+#. module: label
+#: model:ir.actions.report.xml,name:label.dynamic_label
+msgid "QWEB Demo"
+msgstr ""
+
+#. module: label
+#: view:label.print:label.view_label_print_form
+msgid "Remove sidebar button"
+msgstr "Retirer le bouton"
+
+#. module: label
+#: view:label.config:label.view_label_config_tree
+#: view:label.print:label.view_label_print_tree
+#: field:label.print.field,report_id:0
+msgid "Report"
+msgstr "Rapport"
+
+#. module: label
+#: selection:label.print.field,position:0
+msgid "Right"
+msgstr "Droit"
+
+#. module: label
+#: field:label.config,right_margin:0
+msgid "Right Margin (in mm)"
+msgstr "Marge Droite (en mm)"
+
+#. module: label
+#: field:label.print.field,sequence:0
+msgid "Sequence"
+msgstr ""
+
+#. module: label
+#: field:label.print,ref_ir_act_report:0
+msgid "Sidebar action"
+msgstr ""
+
+#. module: label
+#: help:label.print,ref_ir_act_report:0
+msgid ""
+"Sidebar action to make this template\n"
+"                                                available on records of "
+"the\n"
+"                                                related document model"
+msgstr ""
+
+#. module: label
+#: field:label.print,ref_ir_value:0
+msgid "Sidebar button"
+msgstr ""
+
+#. module: label
+#: help:label.print,ref_ir_value:0
+msgid "Sidebar button to open the sidebar action"
+msgstr ""
+
+#. module: label
+#: selection:label.print.field,position:0
+msgid "Top"
+msgstr "Haut"
+
+#. module: label
+#: field:label.config,top_margin:0
+msgid "Top Margin (in mm)"
+msgstr "Marge Haute (en mm)"
+
+#. module: label
+#: field:label.print.field,type:0
+msgid "Type"
+msgstr ""
+
+#. module: label
+#: field:label.print.wizard,barcode_width:0
+#: field:label.print.wizard,image_width:0
+msgid "Width"
+msgstr "Largeur"
+
+#. module: label
+#: field:label.config,width:0
+msgid "Width (in mm)"
+msgstr "Largeur (en mm)"

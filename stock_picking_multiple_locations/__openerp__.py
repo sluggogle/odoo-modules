@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Product Category Lot Sequence",
+    'name': "Stock Picking Multiple Locations",
 
     'summary': """
-Category lot sequence type used for product lot.
+Allows to set multiple source/destination location per picking order.
 """,
 
     'description': """
-This module allows you to set a sequence to a product category so each time you add a new lot of this category, the lot number will be set with the next sequence value.\n\n
-
-When no sequence is set, default serial numbers will set by default.\n\n
+This module allows to set lines from multiple source or destination location.\n\n
 
 """,
 
@@ -23,14 +21,12 @@ When no sequence is set, default serial numbers will set by default.\n\n
     'version': '8.0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','product', 'stock'],
+    'depends': ['base','stock'],
 
     # always loaded
     'data': [
-        'product_category.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
-        #'demo.xml',
     ],
 }
