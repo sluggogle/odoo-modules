@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<template id="report_saleorder_document_az7" inherit_id="sale.report_saleorder_document">
+    <!-- Add the ICE for Moroccan companies -->
+    <xpath expr="//p[@t-if='doc.partner_id.vat']" position="after">
+        <p t-if="doc.company_id.country_id.code == 'MA' and doc.partner_id.l10n_ma_ice">
+            ICE: <span t-field="doc.partner_id.l10n_ma_ice"/>
+        </p>
+    </xpath>
+    <!-- Remove time in the quotation date -->
+    <xpath expr="//p[@t-field='doc.date_order']" position="attributes">
+        <attribute name="t-options">{"format": "dd/MM/yyyy"}</attribute>
+    </xpath>
+    <!-- Remove the Saleperson -->
+    <xpath expr="//div[@t-if='doc.user_id.name']" position="replace"/>
+</template>
+
+</odoo>
