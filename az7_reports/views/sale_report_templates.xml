@@ -14,6 +14,9 @@
     </xpath>
     <!-- Remove the Saleperson -->
     <xpath expr="//div[@t-if='doc.user_id.name']" position="replace"/>
+    <!-- Remove Taxe column -->
+    <xpath expr="//table/thead/tr/th[5]" position="replace"/>
+    <xpath expr="//td[5]" position="replace"/>
 </template>
 
 </odoo>
