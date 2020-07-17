@@ -17,6 +17,21 @@
     <!-- Remove Taxe column -->
     <xpath expr="//table/thead/tr/th[5]" position="replace"/>
     <xpath expr="//td[5]" position="replace"/>
+    <!-- If total price is 0 then print 'gratuit' -->
+    <xpath expr="//td[5]" position="replace">
+      <td class="text-right o_price_total">
+	<t t-if="line.price_subtotal == 0">
+	  <span groups="account.group_show_line_subtotals_tax_excluded">Gratuit</span>
+	</t>
+	<t t-elif="line.price_total == 0">
+	  <span groups="account.group_show_line_subtotals_tax_included">Gratuit</span>
+	</t>
+	<t t-else="">
+	  <span t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+          <span t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
+	</t>
+      </td>
+    </xpath>
 </template>
 
 </odoo>
