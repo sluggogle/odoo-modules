@@ -9,7 +9,7 @@
         Adds a computed field in sale.order and account.invoice to display the amount by words in reports.
     """,
     'depends': [
-        'sale_management',
+        'sale_management', 'purchase'
     ],
     'data': [
 
