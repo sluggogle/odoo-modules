@@ -2,7 +2,7 @@
 {
     'name': 'Bank Get Address',
     "summary": 'Method to return the bank address inline',
-    'version': '12.0.1.0.0',
+    'version': '13.0.1.0.0',
     'author': 'AgenceZ7',
     'category': 'Sales',
     'description': """

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Sale Order Confirmation Date',
-    'version': '12.0.1.0.0',
+    'version': '13.0.1.0.0',
     'author': 'AgenceZ7',
     'category': 'Sales',
     'description': """

@@ -7,7 +7,6 @@ class ResPartner(models.Model):
 
     l10n_ma_ice = fields.Char(string="ICE", size=15)
 
-    @api.multi
     def copy(self, default=None):
         self.ensure_one()
         default = dict(default or {}, l10n_ma_ice="")

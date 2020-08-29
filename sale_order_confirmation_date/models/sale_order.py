@@ -9,7 +9,6 @@ class SaleOrder(models.Model):
 
     confirmation_date = fields.Datetime(readonly=False)
 
-    @api.multi
     def action_confirm(self):
         if self._get_forbidden_state_confirm() & set(self.mapped('state')):
             raise UserError(_(

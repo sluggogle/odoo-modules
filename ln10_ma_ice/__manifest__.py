@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Morocco ICE',
-    'version': '12.0.1.0.0',
+    'version': '13.0.1.0.0',
     'author': 'AgenceZ7',
     'category': 'Localization',
     'description': """

@@ -2,7 +2,7 @@
 {
     'name': 'Sale Amount to text',
     "summary": 'A field with the amount in text',
-    'version': '12.0.1.0.0',
+    'version': '13.0.1.0.0',
     'author': 'AgenceZ7',
     'category': 'Sales',
     'description': """
