@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Ajout du champs contact dans le formulaire -->
+<record id="contact_sale_view_form" model="ir.ui.view">
+    <field name="name">contact.sale.view.form</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+        <field name="validity_date" position="before">
+            <field name="partner_contact_id" options="{'no_create': False}" domain="['&amp;', ('parent_id', '=', partner_id), ('type', '=', 'contact')]"/>
+        </field>
+    </field>
+</record>
+
+</odoo>
