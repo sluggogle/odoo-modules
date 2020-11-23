@@ -69,7 +69,6 @@ VariantMixin._onChangeCombinationStock = function (ev, $parent, combination) {
     }
 
     xml_load.then(function () {
-        alert(xml_load);
         $('.oe_website_sale')
             .find('.availability_message_' + combination.product_template)
             .remove();
