@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright Monweblocal 2020
+-->
+<odoo>
+    <record id="mwl_view_blog_post_form_inherited" model="ir.ui.view">
+        <field name="name">mwl.view.blog.post.form.inherited</field>
+        <field name="model">blog.post</field>
+        <field name="inherit_id" ref="website_blog.view_blog_post_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page name="content_html" string="HTML Content">
+                    <field name="content" placeholder="Add content here..." widget="text" modifiers="{}"/>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>
