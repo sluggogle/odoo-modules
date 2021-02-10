@@ -5,4 +5,11 @@
             <script type="text/javascript" src="/website_product_not_available/static/src/js/variant_mixin.js" />
         </xpath>
     </template>
+
+    <!-- Template computing the price in the website product page -->
+    <template id="website_product_price" inherit_id="website_sale.product_price">
+        <xpath expr="//div[@itemprop='offers']" position="attributes">
+            <attribute name="t-if">(product.inventory_availability != 'not_available') or (combination_info['price'] > 0)</attribute> 
+        </xpath>
+    </template>
 </odoo>
