@@ -7,6 +7,9 @@ odoo.define('website_sale_dynamic_snippet_product_template.s_dynamic_snippet_pro
 
         // Don't remote the filter_opt field in the snippet options
         _computeWidgetVisibility: function (widgetName, params) {
+            if (widgetName === 'filter_opt') {
+                return true;
+            }
             return this._super.apply(this, arguments);
         },
 

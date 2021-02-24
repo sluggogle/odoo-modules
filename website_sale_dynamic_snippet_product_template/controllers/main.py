@@ -15,8 +15,12 @@ class WebsiteSaleProductFilter(http.Controller):
     def get_dynamic_snippet_filters(self):
         domain = expression.AND([
             request.website.website_domain(),
-            ['|', ('filter_id.model_id', '=', 'product.product'), ('action_server_id.model_id.model', '=', 'product.product')],
-            ['|', ('filter_id.model_id', '=', 'product.template'), ('action_server_id.model_id.model', '=', 'product.template')]
+            [
+                '|', '|',
+                ('filter_id.model_id', '=', 'product.product'), ('action_server_id.model_id.model', '=', 'product.product'),
+                '|',
+                ('filter_id.model_id', '=', 'product.template'), ('action_server_id.model_id.model', '=', 'product.template')
+            ]
         ])
 
         filters = request.env['website.snippet.filter'].sudo().search_read(
