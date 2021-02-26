@@ -1,4 +1,4 @@
-odoo.define('website_sale_dynamic_snippet_product_template.s_dynamic_snippet_products_options', function (require) {
+odoo.define('website_sale_better_dynamic_products_snippet.s_dynamic_snippet_products_options', function (require) {
     'use strict';
 
     const oldDynamicSnippetProductsOptions = require('website_sale.s_dynamic_snippet_products_options');
@@ -15,7 +15,7 @@ odoo.define('website_sale_dynamic_snippet_product_template.s_dynamic_snippet_pro
 
         // Only fetch product.product or product.template filter (see controller)
         _fetchDynamicFilters: function () {
-            return this._rpc({route: '/website_sale_dynamic_snippet_product_template/snippet/options_filters'});
+            return this._rpc({route: '/website_sale_better_dynamic_products_snippet/snippet/options_filters'});
         },
         
         // No need to set the filter_opt field as we can do it manually

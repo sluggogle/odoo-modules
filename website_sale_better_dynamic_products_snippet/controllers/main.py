@@ -11,7 +11,7 @@ class WebsiteSaleProductFilter(http.Controller):
     # Website Snippet Filters
     # --------------------------------------------------------------------------
 
-    @http.route('/website_sale_dynamic_snippet_product_template/snippet/options_filters', type='json', auth='user', website=True)
+    @http.route('/website_sale_better_dynamic_products_snippet/snippet/options_filters', type='json', auth='user', website=True)
     def get_dynamic_snippet_filters(self):
         domain = expression.AND([
             request.website.website_domain(),

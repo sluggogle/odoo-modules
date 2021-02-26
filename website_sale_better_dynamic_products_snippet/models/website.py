@@ -8,7 +8,7 @@ class Website(models.Model):
 
     def _bootstrap_snippet_filters(self):
         super(Website, self)._bootstrap_snippet_filters()
-        action = self.env.ref('website_sale_dynamic_snippet_product_template.dynamic_snippet_product_templates_action', raise_if_not_found=False)
+        action = self.env.ref('website_sale_better_dynamic_products_snippet.dynamic_snippet_product_templates_action', raise_if_not_found=False)
         if action:
             self.env['website.snippet.filter'].create({
                 'action_server_id': action.id,
