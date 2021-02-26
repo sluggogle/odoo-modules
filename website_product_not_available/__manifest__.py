@@ -1,7 +1,7 @@
 # Copyright Monweblocal 2020
 #
 # TODO:
-#   - Ribbon is not customizable
+#   - Remove specific behavior for our customer (to tag_product_not_available)
 #   - In the controller, we make a request per product: should be possible to reduce
 #   - Products not available for sale are only disabled in the frontend but the backend would still accept them
 #       - Either in /addons/website_sale/models/sale_order.py -> _cart_update()

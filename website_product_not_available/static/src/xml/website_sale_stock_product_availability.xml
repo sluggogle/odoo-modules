@@ -27,14 +27,14 @@
             <div class="o_carousel_product_card_footer card-footer d-flex align-items-center">
                 <t t-if="product.product_type == 'product' and product.inventory_availability == 'not_available'">
                     
-                    <div class="d-block font-weight-bold">SUR DEMANDE</div>
+                    <div id="price" class="d-block font-weight-bold">SUR DEMANDE</div>
                     
                     <!-- Special TAGin3D TODO -->
                     <a role="button" class="btn btn-primary ml-auto" title="Contact" href="/contact">
                         <i class="fa fa-fw fa-envelope"/>
                     </a>
                     
-                    <!-- <button type="button" role="button" class="btn btn-primary ml-auto disabled out_of_stock" title="Add to Cart">
+                    <!-- <button id="add_to_cart" type="button" role="button" class="btn btn-primary ml-auto disabled out_of_stock" title="Add to Cart">
                         <i class="fa fa-fw fa-shopping-cart"/>
                     </button> -->
                 </t>
