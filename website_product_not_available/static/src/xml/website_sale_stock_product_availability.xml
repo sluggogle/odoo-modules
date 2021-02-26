@@ -15,21 +15,28 @@
 
     <!-- In recently viewed product widget -->
     <t t-extend="website_sale.productsRecentlyViewed">
+        
         <!-- Adds ribbon -->
         <t t-jquery="div.card" t-operation="append">
-            <span t-if="product.product_type == 'product' and product.inventory_availability == 'not_available'"
-                class="o_ribbon o_ribbon_left bg-primary o_dirty">Sur demande</span>
+            <span t-if="product.website_ribbon_id"
+                t-attf-class="o_ribbon {{ product.ribbon_class }}" t-raw="product.ribbon_html"/>
         </t>
         
         <!-- remove price and add to cart button when the product is not available for sale -->
         <t t-jquery="div.o_carousel_product_card_footer" t-operation="replace">
-            <t t-log="product"/>
             <div class="o_carousel_product_card_footer card-footer d-flex align-items-center">
                 <t t-if="product.product_type == 'product' and product.inventory_availability == 'not_available'">
+                    
                     <div class="d-block font-weight-bold">SUR DEMANDE</div>
-                    <button type="button" role="button" class="btn btn-primary ml-auto disabled out_of_stock" title="Add to Cart">
+                    
+                    <!-- Special TAGin3D TODO -->
+                    <a role="button" class="btn btn-primary ml-auto" title="Contact" href="/contact">
+                        <i class="fa fa-fw fa-envelope"/>
+                    </a>
+                    
+                    <!-- <button type="button" role="button" class="btn btn-primary ml-auto disabled out_of_stock" title="Add to Cart">
                         <i class="fa fa-fw fa-shopping-cart"/>
-                    </button>
+                    </button> -->
                 </t>
                 <t t-else="">
                     <div class="d-block font-weight-bold" t-raw="product.price"/>

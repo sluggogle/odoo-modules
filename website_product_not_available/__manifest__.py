@@ -2,7 +2,7 @@
 #
 # TODO:
 #   - Ribbon is not customizable
-#   - In the controller, we make a request per product: sould be possible to reduce
+#   - In the controller, we make a request per product: should be possible to reduce
 #   - Products not available for sale are only disabled in the frontend but the backend would still accept them
 #       - Either in /addons/website_sale/models/sale_order.py -> _cart_update()
 #       - Or in /addons/website_sale/controllers/main.py -> @http.route(['/shop/cart/update'] and @http.route(['/shop/cart/update_json']
