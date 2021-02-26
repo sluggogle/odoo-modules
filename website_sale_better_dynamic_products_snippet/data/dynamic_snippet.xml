@@ -77,6 +77,7 @@ OVERRIDING EXISTING SERVER ACTION FOR PRODUCT.PRODUCT
             <field name="code">
 ProductProduct = model.env['product.product']
 FieldMonetary = model.env['ir.qweb.field.monetary']
+WebsiteRibbon = model.env['product.ribbon']
 
 website = request.website.get_current_website()
 dynamic_filter = model.env.context.get('dynamic_filter')
