@@ -7,7 +7,9 @@ class CustomWebsiteSale(WebsiteSale):
     def _get_products_recently_viewed(self):
         res = super(CustomWebsiteSale, self)._get_products_recently_viewed()
 
-        if len(res['products']) > 0:
+        key = 'products'
+
+        if len(res.get(key, {})) > 0:
             for product in res['products']:
                 # TODO: Do better ?
                 tmpl = request.env['product.template'].browse(product['product_template_id'])[0]
