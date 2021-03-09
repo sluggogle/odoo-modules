@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Action Server for Dynamic Product Template Filter -->
+        <record id="dynamic_snippet_product_templates_action" model="ir.actions.server">
+            <field name="name">Product Templates Dynamic Snippet</field>
+            <field name="model_id" ref="product.model_product_template"/>
+            <field name="state">code</field>
+            <field name="code">
+ProductTemplate = model.env['product.template']
+FieldMonetary = model.env['ir.qweb.field.monetary']
+WebsiteRibbon = model.env['product.ribbon']
+
+website = request.website.get_current_website()
+dynamic_filter = model.env.context.get('dynamic_filter')
+limit = model.env.context.get('limit')
+search_domain = model.env.context.get('search_domain')
+get_rendering_data_structure = model.env.context.get('get_rendering_data_structure')
+escape = dynamic_filter.escape_falsy_as_empty
+
+domain = [('website_published', '=', True)] + website.website_domain() + (search_domain or [])
+products = ProductTemplate.search(domain, limit=limit)
+_ = products.mapped('name')
+
+monetary_options = {
+    'display_currency': request.website.get_current_pricelist().currency_id,
+}
+
+max_nb_chars = 100
+res_products = []
+for product in products:
+    res_product = product._read_format(['id', 'name', 'website_url', 'description_sale', 'website_ribbon_id'])[0]
+    res_product.update(product._get_combination_info())
+
+    if res_product['description_sale'] and len(res_product['description_sale']) > max_nb_chars:
+        res_product['description_sale'] = "%s ..." % res_product['description_sale'][:max_nb_chars]
+    
+    res_product['list_price'] = FieldMonetary.value_to_html(res_product['price'], monetary_options)
+
+    ribbon = False
+    if res_product['website_ribbon_id']:
+      ribbon = WebsiteRibbon.browse(res_product['website_ribbon_id'][0])
+
+    data = get_rendering_data_structure()
+    for field_name in dynamic_filter.field_names.split(","):
+        field = ProductTemplate._fields.get(field_name)
+        if field and field.type == 'binary':
+            data['image_fields'][field_name] = escape(website.image_url(product, field_name))
+        elif field_name == 'list_price':
+            data['fields'][field_name] = res_product[field_name]
+        elif field_name == 'website_ribbon_id':
+            data['fields'][field_name] = ribbon
+        else:
+            data['fields'][field_name] = escape(res_product[field_name])
+    data['fields']['call_to_action_url'] = escape(product['website_url'])
+    res_products.append(data)
+
+response = res_products
+            </field>
+        </record>
+        <!-- Dynamic Product Template Filter -->
+        <record id="dynamic_filter_demo_product_templates" model="website.snippet.filter">
+            <field name="action_server_id" ref="website_sale_better_dynamic_products_snippet.dynamic_snippet_product_templates_action"/>
+            <field name="field_names">display_name,description_sale,image_512,list_price,website_ribbon_id</field>
+            <field name="limit" eval="16"/>
+            <field name="name">Product Templates</field>
+            <field name="website_id" ref="website.default_website"/>
+        </record>
+
+
+<!-- 
+OVERRIDING EXISTING SERVER ACTION FOR PRODUCT.PRODUCT
+-->
+
+        <!-- Action Server for Dynamic Filter -->
+        <record id="website_sale.dynamic_snippet_products_action" model="ir.actions.server">
+            <field name="code">
+ProductProduct = model.env['product.product']
+FieldMonetary = model.env['ir.qweb.field.monetary']
+WebsiteRibbon = model.env['product.ribbon']
+
+website = request.website.get_current_website()
+dynamic_filter = model.env.context.get('dynamic_filter')
+limit = model.env.context.get('limit')
+search_domain = model.env.context.get('search_domain')
+get_rendering_data_structure = model.env.context.get('get_rendering_data_structure')
+escape = dynamic_filter.escape_falsy_as_empty
+
+domain = [('website_published', '=', True)] + website.website_domain() + (search_domain or [])
+products = ProductProduct.search(domain, limit=limit)
+_ = products.mapped('name')
+
+monetary_options = {
+    'display_currency': request.website.get_current_pricelist().currency_id,
+}
+
+max_nb_chars = 100
+res_products = []
+for product in products:
+    res_product = product._read_format(['id', 'name', 'website_url', 'description_sale', 'website_ribbon_id'])[0]
+    res_product.update(product._get_combination_info_variant())
+
+    if res_product['description_sale'] and len(res_product['description_sale']) > max_nb_chars:
+        res_product['description_sale'] = "%s ..." % res_product['description_sale'][:max_nb_chars]
+
+    res_product['list_price'] = FieldMonetary.value_to_html(res_product['price'], monetary_options)
+
+    ribbon = False
+    if res_product['website_ribbon_id']:
+      ribbon = WebsiteRibbon.browse(res_product['website_ribbon_id'][0])
+
+    data = get_rendering_data_structure()
+    for field_name in dynamic_filter.field_names.split(","):
+        field = ProductProduct._fields.get(field_name)
+        if field and field.type == 'binary':
+            data['image_fields'][field_name] = escape(website.image_url(product, field_name))
+        elif field_name == 'list_price':
+            data['fields'][field_name] = res_product[field_name]
+        elif field_name == 'website_ribbon_id':
+            data['fields'][field_name] = ribbon
+        else:
+            data['fields'][field_name] = escape(res_product[field_name])
+    data['fields']['call_to_action_url'] = escape(product['website_url'])
+    res_products.append(data)
+
+response = res_products
+            </field>
+        </record>
+        <!-- Dynamic Filter -->
+        <record id="website_sale.dynamic_filter_demo_products" model="website.snippet.filter">
+            <field name="field_names">display_name,description_sale,image_512,list_price,website_ribbon_id</field>
+        </record>
+    </data>
+</odoo>
