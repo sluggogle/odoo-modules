@@ -27,7 +27,7 @@
             <div class="o_carousel_product_card_footer card-footer d-flex align-items-center">
                 <t t-if="product.product_type == 'product' and product.inventory_availability == 'not_available'">
                     
-                    <div t-if="product.price > 0" id="price" class="d-block font-weight-bold" t-raw="product.price"/>
+                    <div t-if="product.list_price > 0" id="price" class="d-block font-weight-bold" t-raw="product.price"/>
                     <div t-else="" id="price" class="d-block font-weight-bold">SUR DEMANDE</div>
                     
                     <!-- Special TAGin3D TODO -->

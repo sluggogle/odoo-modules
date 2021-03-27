@@ -3,7 +3,7 @@
 from odoo.addons.website_sale.controllers.main import WebsiteSale
 
 from odoo import http
-from odoo.http import request
+from odoo.http import request, Response
 
 class CustomWebsiteSale(WebsiteSale):
     def _get_products_recently_viewed(self):
@@ -29,9 +29,9 @@ class CustomWebsiteSale(WebsiteSale):
             if product_id:
                 product_id = int(product_id)
         except ValueError:
-            return
+            return Response(status=204)
         product = request.env['product.product'].sudo().browse(product_id)
         if product.type == 'product' and product.inventory_availability == 'not_available':
-            return
+            return Response(status=204)
         return super().cart_update(product_id, add_qty, set_qty, **kw)
 
