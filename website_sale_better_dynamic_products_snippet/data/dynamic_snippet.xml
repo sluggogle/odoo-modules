@@ -30,7 +30,7 @@ max_nb_chars = 100
 res_products = []
 for product in products:
     res_product = product._read_format(['id', 'name', 'website_url', 'description_sale', 'website_ribbon_id'])[0]
-    res_product.update(product._get_combination_info())
+    res_product.update(product._get_combination_info(only_template=True))
 
     if res_product['description_sale'] and len(res_product['description_sale']) > max_nb_chars:
         res_product['description_sale'] = "%s ..." % res_product['description_sale'][:max_nb_chars]
