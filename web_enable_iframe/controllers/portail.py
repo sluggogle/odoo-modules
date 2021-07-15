@@ -12,6 +12,7 @@ class CustomCustomerPortal(CustomerPortal):
     def account(self, redirect=None, **post):
         res = super(CustomCustomerPortal, self).web_client(redirect, **post)
         res.headers.pop('X-Frame-Options', None)
+        res.headers['Set-Cookie'] = res.headers['Set-Cookie'] + 'SameSite=None'
         return res
 
     @http.route('/my/security', type='http', auth='user', website=True, methods=['GET', 'POST'], csrf=False)
