@@ -8,13 +8,13 @@ from odoo.http import request
 
 class CustomCustomerPortal(CustomerPortal):
 
-    @http.route(['/my/account'], type='http', auth='user', website=True)
+    @http.route(['/my/account'], type='http', auth='user', website=True, csrf=False)
     def account(self, redirect=None, **post):
         res = super(CustomCustomerPortal, self).web_client(redirect, **post)
         res.headers.pop('X-Frame-Options', None)
         return res
 
-    @http.route('/my/security', type='http', auth='user', website=True, methods=['GET', 'POST'])
+    @http.route('/my/security', type='http', auth='user', website=True, methods=['GET', 'POST'], csrf=False)
     def security(self, **post):
         values = self._prepare_portal_layout_values()
         values['get_error'] = get_error
