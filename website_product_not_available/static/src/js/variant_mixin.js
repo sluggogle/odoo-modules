@@ -64,8 +64,9 @@ VariantMixin._onChangeCombinationStock = function (ev, $parent, combination) {
     }
     // Disable buttons if the product is configured as not available
     if (combination.product_type === 'product' && _.contains(['not_available'], combination.inventory_availability)) {
-        $parent.find('#add_to_cart').addClass('disabled');
-        $parent.find('#buy_now').addClass('disabled');
+        $parent.find('.css_quantity.input-group').remove()
+        $parent.find('#add_to_cart').remove();
+        $parent.find('#buy_now').remove();
     }
 
     xml_load.then(function () {
