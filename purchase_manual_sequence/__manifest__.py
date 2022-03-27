@@ -4,9 +4,9 @@
     "summary": 'Set the sequence manually',
     'version': '14.0.1.0.0',
     'author': 'Stephane AMAOUA',
-    'category': 'Purchases',
+    'category': 'Purchase',
     'description': """
-        User is able to set the purchase order reference manually at creation or let the system use the next sequence.
+        User is able to set the purchase sequence manually at creation or let the system use the next sequence.
     """,
     'depends': [
         'purchase',
