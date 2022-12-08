@@ -9,7 +9,7 @@
         User is able to set the stock picking date done manually at creation or let the system set the current day.
     """,
     'depends': [
-        'stock',
+        'stock_landed_costs',
     ],
     'data': [
         'views/stock_views.xml',
