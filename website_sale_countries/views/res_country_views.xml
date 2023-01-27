@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright Monweblocal 2020
+-->
+<odoo>
+    <!-- Tree view -->
+    <record id="view_country_tree_inherit_website_sale_country" model="ir.ui.view">
+        <field name="name">res.country.view.tree.inherit</field>
+        <field name="model">res.country</field>
+        <field name="inherit_id" ref="base.view_country_tree"/>
+        <field name="arch" type="xml">
+            <field name="code" position="after">
+                <field name="is_available_ecommerce" widget="boolean_toggle"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_country_form_inherit_website_sale_country" model="ir.ui.view">
+        <field name="name">res.country.view.form.inherit</field>
+        <field name="model">res.country</field>
+        <field name="inherit_id" ref="base.view_country_form"/>
+        <field name="arch" type="xml">
+            <field name="code" position="after">
+                <field name="is_available_ecommerce" widget="boolean_toggle"/>
+            </field>
+        </field>
+    </record>
+</odoo>
