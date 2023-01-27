@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Template computing the price in the website product page -->
+    <template id="website_product_price" inherit_id="website_sale.product_price">
+        <xpath expr="//div[@itemprop='offers']" position="attributes">
+            <attribute name="t-if">(product.website_availability == True) or (combination_info['price'] > 0)</attribute> 
+        </xpath>
+    </template>
+
+    <template id="website_product" inherit_id="website_sale.product">
+        <xpath expr="//form" position="attributes">
+            <attribute name="t-if"></attribute>
+        </xpath>
+        <xpath expr="//div[@id='add_to_cart_wrap']" position="attributes">
+            <attribute name="t-if">product._is_add_to_cart_possible()</attribute>
+        </xpath>
+        <xpath expr="//div[@id='add_to_cart_wrap']" position="after">
+            <xpath expr="//div[@id='product_details']/p[2]" position="move"/>
+            <xpath expr="//div[@id='product_details']/p[2]" position="move"/>
+        </xpath>
+        <xpath expr="//form/div/p[3]" position="replace">
+            <p t-else="" class="alert alert-warning">
+                <span t-if="product.website_not_available_message" t-field="product.website_not_available_message"/>
+                <span t-else="">Ce produit n'a pas de combinaison existante</span>
+            </p>
+        </xpath>
+        <xpath expr="//div[hasclass('css_quantity')]" position="attributes">
+            <attribute name="t-if">product._is_add_to_cart_possible()</attribute>
+        </xpath>
+    </template>
+</odoo>
