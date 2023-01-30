@@ -18,7 +18,7 @@
     'category': 'Website/Website',
     'license': 'OPL-1',
     'depends': [
-        'website_sale_stock',
+        'website_sale',
     ],
     'data': [
         'views/product_template_views.xml',
